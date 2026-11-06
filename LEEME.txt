@@ -1,0 +1,39 @@
+PORTADA DE LA APP EN GITHUB PAGES (una sola vez, unos 10 minutos)
+==================================================================
+Para qué: que la app se instale como una app de verdad (pantalla completa, sin barras del navegador)
+y sin el aviso «creada por un usuario de Google Apps Script».
+Solo hace falta TU cuenta de GitHub. Juani y los demás no necesitan cuenta: abren un enlace normal.
+En esta portada no hay datos: solo enseña la app de Google. Todo sigue en el Drive de la residencia.
+
+A) ANTES, EN GOOGLE (script.google.com, proyecto «CRISAN formulario contrato»)
+   1. Abre App.gs, borra todo y pega TODO el App.gs nuevo (movil\apps_script\App.gs).
+      (Lleva una línea nueva que deja ver la app dentro de la portada.)
+   2. Pega también el AppCrisan.html nuevo, si no lo hiciste ya (gesto de atrás y modo oscuro).
+   3. Guarda › Implementar › Gestionar implementaciones › Aplicación web › lápiz › «Nueva versión» › Implementar.
+
+B) EN GITHUB (https://github.com, con tu cuenta)
+   1. Arriba a la derecha «+» › «New repository».
+        - Repository name: crisan
+        - Public (GitHub Pages gratis solo va con repositorios públicos; aquí no hay datos ni claves)
+        - Pulsa «Create repository».
+   2. En la página del repositorio: «uploading an existing file» (o «Add file» › «Upload files»).
+      Arrastra estos 7 archivos de esta carpeta (NO este LEEME):
+        index.html, manifest.webmanifest, sw.js,
+        icono-192.png, icono-512.png, icono-adaptable-512.png, icono-apple-180.png
+      Abajo pulsa «Commit changes».
+   3. «Settings» (arriba) › «Pages» (menú de la izquierda).
+        - Source: «Deploy from a branch»
+        - Branch: «main» y carpeta «/ (root)» › «Save».
+   4. Espera 1-2 minutos y recarga esa página: arriba saldrá «Your site is live at
+      https://TU-USUARIO.github.io/crisan/». Copia esa dirección.
+
+C) EN EL PROGRAMA
+   Inquilinos › App del móvil › «Portada en GitHub Pages» › pega la dirección › Guardar.
+   Desde ese momento los enlaces que mandes van a la portada. A quien ya tuviera la app,
+   pulsa «Deshabilitar» y luego «Habilitar (código nuevo)» y mándale el enlace nuevo.
+
+D) EN CADA MÓVIL
+   Abre el enlace del WhatsApp (ya no hace falta copiarlo en Chrome: es una página normal).
+   Menú del navegador (tres puntos) › «Instalar app» (o «Añadir a pantalla de inicio»).
+   Se abre a pantalla completa desde su icono CRISAN.
+   Si ya tenías el acceso directo antiguo, bórralo de la pantalla de inicio.

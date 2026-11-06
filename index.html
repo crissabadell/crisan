@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CRISAN</title>
+<meta name="theme-color" content="#3f7d6b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icono-192.png">
+<link rel="apple-touch-icon" href="icono-apple-180.png">
+<style>
+:root{--fondo:#f6f8f7;--texto:#22302b;--suave:#6b7a74;--acento:#3f7d6b}
+@media (prefers-color-scheme:dark){:root{--fondo:#141a18;--texto:#e3ebe7;--suave:#97a8a1}}
+html,body{margin:0;height:100%;background:var(--fondo);color:var(--texto);font:18px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+.aviso{max-width:420px;margin:0 auto;padding:60px 24px;text-align:center}.aviso b{color:var(--acento);letter-spacing:.08em;font-size:22px}
+.aviso p{color:var(--suave)}
+</style>
+</head>
+<body>
+<script>
+/* Portada de la app CRISAN: la deja instalar como una app de verdad (pantalla completa, sin barras del navegador)
+   y enseña dentro la app de Google Apps Script. El código personal llega una vez en el enlace (?u=…) y se recuerda
+   en este móvil; después se quita de la dirección. Aquí no hay datos: todo sigue en el Drive de la residencia. */
+var APP = 'https://script.google.com/macros/s/AKfycbxYi1TYZsbCs7rDxcQH_QiEJT_OK1wBPq-Q7j0ZAq8XVg8kJ5pBMxCyjRPmxbvlu5I/exec';
+var codigo = (new URLSearchParams(location.search).get('u') || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 20);
+try {
+  if (codigo) localStorage.setItem('crisan_codigo', codigo); else codigo = localStorage.getItem('crisan_codigo') || '';
+} catch (e) { /* sin memoria en este navegador: vale el código del enlace */ }
+if (codigo && location.search) history.replaceState(null, '', location.pathname);
+if (codigo) {
+  var f = document.createElement('iframe');
+  f.src = APP + '?app=1&u=' + encodeURIComponent(codigo);
+  f.title = 'CRISAN';
+  f.allow = 'clipboard-write';
+  document.body.appendChild(f);
+} else {
+  document.body.innerHTML = '<div class="aviso"><b>CRISAN</b><p>Abre esta app con el enlace personal que te mandamos por WhatsApp. Solo hace falta la primera vez.</p></div>';
+}
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+</script>
+</body>
+</html>
